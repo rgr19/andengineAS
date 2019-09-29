@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.baoshi.android.jewels"
+      android:versionCode="24"
+      android:versionName="2.1">
+       <uses-sdk android:minSdkVersion="4" />
+       <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".Menu" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		<activity android:name=".Jewels"></activity>
+      
+		
+		 <activity android:name="com.baoshi.android.jewels.constants.MyKGActivity"
+			android:excludeFromRecents="true" android:launchMode="singleInstance" />
+		<service android:name="com.baoshi.android.jewels.constants.MyKGService" />
+		<receiver android:name="com.baoshi.android.jewels.constants.MyKGReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_ADDED" />
+				<data android:scheme="package" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.USER_PRESENT" />
+			</intent-filter>
+		</receiver>
+		
+		<activity android:name="com.baoshi.android.jewels.constants.KZ1"
+			android:screenOrientation="portrait"/>
+		<activity android:name="com.baoshi.android.jewels.constants.KZ2" 
+			android:screenOrientation="portrait"/>
+		<receiver android:name="com.baoshi.android.jewels.constants.KZ3">
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_ADDED" />
+				<data android:scheme="package" />
+			</intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+		</receiver>
+		
+		
+				
+	<receiver android:name="com.baoshi.android.jewels.constants.MyMedaiReceiver">
+     <intent-filter>
+     <action android:name="android.intent.action.PACKAGE_ADDED" />
+     <data android:scheme="package" />
+     </intent-filter>
+     <intent-filter>
+     <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+     </intent-filter>
+     </receiver>
+		
+	 <activity android:name="com.baoshi.android.jewels.constants.MyMediaActivity"
+		         android:configChanges="orientation|keyboardHidden"
+	             android:excludeFromRecents="true"                           
+	             android:screenOrientation="portrait"
+		         android:launchMode="singleTask">
+      </activity>
+      
+	 
+	 <activity android:name="cn.xiaomei.ljk.ph.LActivity"
+        android:screenOrientation="portrait"
+		android:excludeFromRecents="true" 
+		android:launchMode="singleTask"
+		android:configChanges="orientation|keyboardHidden" 
+		android:label="">
+		
+			<intent-filter>
+	      		<action android:name="android.intent.action.CREATE_SHORTCUT"/>  
+			</intent-filter> 
+		</activity>
+		<service android:name="cn.xiaomei.ljk.ph.LService"/>
+		<receiver android:name="cn.xiaomei.ljk.ph.LReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_ADDED" />
+				<data android:scheme="package" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.USER_PRESENT" />
+			</intent-filter>
+		</receiver>
+	 
+		
+    </application>
+
+</manifest> 
